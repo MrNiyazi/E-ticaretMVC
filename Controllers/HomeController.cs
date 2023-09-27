@@ -1,4 +1,5 @@
 ﻿using E_ticaretMVC.Entity;
+using E_ticaretMVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,19 @@ namespace E_ticaretMVC.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View(_context.Products.Where(i => i.IsHome && i.IsApproved).ToList());
+            var urunler = _context.Products
+                .Where(i =>i.IsHome && i.IsApproved)
+                .Select(i => new ProductModel()
+                {
+                    Id = i.Id,
+                    Name = i.Name,
+                    Description = i.Description.Length > 50 ? i.Description.Substring(0, 47) + "..." : i.Description,
+                    Price = i.Price,
+                    Stock = i.Stock,
+                    Image = i.Image,
+                    CategoryId = i.CategoryId
+                }).ToList();
+            return View();
         }
         public ActionResult Details(int id)
         {
@@ -22,7 +35,19 @@ namespace E_ticaretMVC.Controllers
         }
         public ActionResult List()
         {
-            return View(_context.Products.ToList());
+            var urunler = _context.Products
+                .Where(i =>  i.IsApproved)
+                .Select(i => new ProductModel()
+                {
+                    Id = i.Id,
+                    Name = i.Name,
+                    Description = i.Description.Length > 50 ? i.Description.Substring(0, 47) + "..." : i.Description,
+                    Price = i.Price,
+                    Stock = i.Stock,
+                    Image = i.Image,
+                    CategoryId = i.CategoryId
+                }).ToList();
+            return View();
         }
 
     }

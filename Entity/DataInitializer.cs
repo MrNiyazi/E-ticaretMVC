@@ -25,10 +25,13 @@ namespace E_ticaretMVC.Entity
             context.SaveChanges();
             var urunler = new List<Product>() 
             {
-                new Product(){Name="test",Description="deneme",Price=1200, Stock=10, IsApproved=true, CategoryId=1, IsHome=true},
-                new Product(){Name="deneme",Description="deneme",Price=1000, Stock=10, IsApproved=true, CategoryId=1, IsHome=true},
-                new Product(){Name="test",Description="test",Price=100, Stock=20, IsApproved=true, CategoryId=1, IsHome=true},
-                new Product(){Name="test",Description="deneme",Price=1200, Stock=5, IsApproved=true, CategoryId=1, IsHome = true},
+                new Product(){Name="test",Description="Lorem Ipsum, kısaca Lipsum, .",Price=1200, Stock=10, IsApproved=true, CategoryId=1, IsHome=true, Image="1.jpg"},
+                new Product(){Name="deneme",Description="Lorem Ipsum, kısaca Lipsum",Price=1000, Stock=10, IsApproved=true, CategoryId=1, IsHome=true, Image="2.jpg"},
+                new Product(){Name="test",Description="Lorem Ipsum, kısaca Lipsum, ",Price=100, Stock=20, IsApproved=true, CategoryId=1, IsHome=true,Image="3.jpg"},
+                new Product(){Name="test",Description="Lorem Ipsum, kısaca Lipsum, ",Price=1200, Stock=5, IsApproved=true, CategoryId=1, IsHome = true, Image = "1.jpg"},
+                new Product(){Name="test",Description="Lorem Ipsum, kısaca",Price=1200, Stock=5, IsApproved=true, CategoryId=1, IsHome = true, Image = "2.jpg"},
+                new Product(){Name="test",Description="Lorem Ipsum, kısar.",Price=1200, Stock=5, IsApproved=true, CategoryId=1, IsHome = true, Image = "3.jpg"},
+                new Product(){Name="test",Description="Lorem Ipsum, kısaca.",Price=1200, Stock=5, IsApproved=true, CategoryId=1, IsHome = true, Image = "4.jpg"},
             };
             foreach (var urun in urunler)
             {

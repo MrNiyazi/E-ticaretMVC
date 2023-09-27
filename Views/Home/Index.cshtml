@@ -1,8 +1,9 @@
-﻿@using E_ticaretMVC.Entity;
-@model IEnumerable<Product>
+﻿@using E_ticaretMVC.Models;
+@model IEnumerable<ProductModel>
 @{
     ViewBag.Title = "Index";
 }
+
 <div class="jumbotron">
     <div class="container">
         <h1 class="display-4">Hello, world!</h1>
@@ -14,26 +15,8 @@
         </p>
     </div>
 </div>
-<div class="row">
 
-    @foreach (var urun in Model)
-    {
-        <div class="col-md-4">
-            <div class="card">
-                <img class="card-img-top" src="~/tema/image/indir.jpg" alt="@urun.Name">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="/Home/Details/@urun.Id"> @urun.Name</a>
-                    </h5>
-                    <p class="card-text">@urun.Description</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">@urun.Price</small>
-                </div>
-            </div>
-        </div>
-
-    }
-
+<div class="container pb-5">
+    @Html.Partial("_ProductList",Model)
 </div>
 
