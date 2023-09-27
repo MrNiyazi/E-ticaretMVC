@@ -18,7 +18,7 @@ namespace E_ticaretMVC.Controllers
         }
         public ActionResult Details(int id)
         {
-            return View(_context.Products.Where(i => i.Id == id).ToList());
+            return View(_context.Products.Where(i => i.Id == id).FirstOrDefault());
         }
         public ActionResult List()
         {
